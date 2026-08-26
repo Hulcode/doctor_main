@@ -1,7 +1,16 @@
+// Returns YYYY-MM-DD in LOCAL time (not UTC), avoiding day-shift bugs
+// around midnight in timezones ahead of UTC (e.g. Egypt).
+const toLocalDateString = (date: Date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
 export const getDateAfter = (day: number) => {
   const max = new Date();
   max.setDate(max.getDate() + day);
-  return max.toISOString().split("T")[0];
+  return toLocalDateString(max);
 };
 
 export const getDayFromString = (dateString: string) => {
@@ -38,7 +47,7 @@ export const generateSlots = (
 
   // Get current date and time
   const now = new Date();
-  const todayStr = now.toISOString().split("T")[0]; // YYYY-MM-DD
+  const todayStr = toLocalDateString(now); // YYYY-MM-DD, local time
   const currentMinutesNow = now.getHours() * 60 + now.getMinutes();
 
   while (currentMinutes < endMinutes) {
