@@ -1,0 +1,147 @@
+// ============================================
+// GENERATOR & DATASOURCE
+// ============================================
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+
+}
+
+// ============================================
+// ENUMS
+// ============================================
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum AppointmentStatus {
+  PENDING
+
+  COMPLETED
+  CANCELLED
+
+}
+
+// ============================================
+// MODELS
+// ============================================
+
+// --------------------------------------------
+// DOCTOR
+// --------------------------------------------
+model Doctor {
+  id               String     @id @default(cuid())
+  name             String
+  title            String     // e.g., "Cardiologist", "استشاري أمراض القلب"
+  yearsExperience  Int        @default(0)
+  imageUrl         String?
+  description      String     @db.Text
+  phone            String     @unique
+  email            String?    @unique
+  address          String?
+  facebookLink     String?
+  instagramLink    String?
+
+  schedules        Schedule[]
+  patients         Patient[]
+  appointments     Appointment[]
+  reviews          Review[]
+
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+
+  @@index([name])
+}
+
+// --------------------------------------------
+// SCHEDULE (One per Doctor)
+// --------------------------------------------
+model Schedule {
+  id                  String   @id @default(cuid())
+  doctorId            String
+  doctor              Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  // Array of 7 days (Sunday=0, Monday=1, ... Saturday=6)
+  // Each day is a JSON object containing:
+  // { from: "09:00", to: "20:00", appointmentDuration: 30, isDayOff: false }
+  days                Json     // Stored as JSON array in PostgreSQL
+
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@unique([doctorId])
+}
+
+// --------------------------------------------
+// PATIENT (Phone number as unique ID)
+// --------------------------------------------
+model Patient {
+  id               String     @id @default(cuid())
+  name             String
+  phone            String     @unique // Used as the primary identifier
+  doctorId         String
+  doctor           Doctor     @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  isBlocked        Boolean  @default(false)
+  appointments     Appointment[]
+
+
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+
+  @@index([doctorId])
+  @@index([phone])
+}
+
+// --------------------------------------------
+// REVIEW
+// --------------------------------------------
+model Review {
+  id               String       @id @default(cuid())
+ 
+  name             String
+  doctorId         String
+  doctor           Doctor       @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  content          String       @db.Text
+  stars            Int          @default(5) // 1 to 5
+  status           ReviewStatus @default(PENDING)
+  isBlocked        Boolean      @default(false)
+
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+
+  @@index([doctorId])
+
+  @@index([status])
+}
+
+// --------------------------------------------
+// APPOINTMENT
+// --------------------------------------------
+model Appointment {
+  id               String            @id @default(cuid())
+  patientId        String
+  patient          Patient           @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  doctorId         String
+  doctor           Doctor            @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  date             DateTime          @db.Date
+  time             String            // e.g., "09:00", "10:30"
+  status           AppointmentStatus @default(PENDING)
+
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  @@unique([doctorId, date, time]) // Prevent double booking
+  @@index([doctorId, date])
+  @@index([patientId])
+  @@index([status])
+}
