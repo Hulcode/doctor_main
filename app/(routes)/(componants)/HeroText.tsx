@@ -14,13 +14,16 @@ interface DoctorData {
 const HeroText = ({ doctor }: { doctor: DoctorData }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, x: 60 }}
+      initial={false}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+      transition={{
+        duration: 0.8,
+        delay: 0.15,
+        ease: "easeOut",
+      }}
       className="max-w-2xl"
     >
       {/* Badge */}
-
       <TitleWidge Icon={HeartPulse} title={doctor.title} />
 
       {/* Heading */}
@@ -31,7 +34,7 @@ const HeroText = ({ doctor }: { doctor: DoctorData }) => {
       </h1>
 
       {/* Description */}
-      <p className="mt-4 text-slate-600 leading-relaxed">
+      <p className="mt-4 leading-relaxed text-slate-600">
         {doctor.description.length > 100
           ? doctor.description.slice(0, 100) + "..."
           : doctor.description}
@@ -44,7 +47,9 @@ const HeroText = ({ doctor }: { doctor: DoctorData }) => {
           className="group flex items-center gap-3 rounded-full bg-[#062657] px-7 py-4 font-semibold text-white shadow-lg shadow-[#062657]/20 transition-all duration-300 hover:-translate-y-1 hover:bg-[#0b3d7a]"
         >
           <CalendarDays className="h-5 w-5" />
+
           <span>احجز موعدك الآن</span>
+
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -56,15 +61,18 @@ const HeroText = ({ doctor }: { doctor: DoctorData }) => {
             strokeLinecap="round"
             strokeLinejoin="round"
             className="transition-transform group-hover:-translate-x-1"
+            aria-hidden="true"
           >
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
         </a>
+
         <a
           href="/about"
           className="group flex items-center gap-3 rounded-full border border-[#062657]/15 bg-white px-7 py-4 font-semibold text-[#062657] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#075b9f]/30 hover:shadow-md"
         >
-          اقرأ المزيد
+          <span>اقرأ المزيد</span>
+
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -76,6 +84,7 @@ const HeroText = ({ doctor }: { doctor: DoctorData }) => {
             strokeLinecap="round"
             strokeLinejoin="round"
             className="transition-transform group-hover:-translate-x-1"
+            aria-hidden="true"
           >
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
@@ -89,6 +98,7 @@ const HeroText = ({ doctor }: { doctor: DoctorData }) => {
             <HeartPulse className="h-3.5 w-3.5 text-[#be0e10]" />
           </div>
         </div>
+
         <span>رعاية طبية تبدأ بالثقة والاطمئنان</span>
       </div>
     </motion.div>
