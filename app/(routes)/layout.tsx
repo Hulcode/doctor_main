@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "د. أحمد حسن سليمان",
   description: "عيادة د. أحمد حسن سليمان",
 };
-
+export const dynamic = "force-dynamic";
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
