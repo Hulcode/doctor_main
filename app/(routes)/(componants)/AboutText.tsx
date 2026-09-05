@@ -46,7 +46,7 @@ const AboutText = ({ doctor }: { doctor: DoctorData }) => {
   ];
 
   return (
-    <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+    <div className="relative mx-auto max-w-7xl px-6 py-14 lg:px-10">
       {/* Section Header */}
       <div className="text-center mb-16">
         <TitleWidge Icon={Award} title="خبرة وثقة" />

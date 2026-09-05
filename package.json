@@ -47,8 +47,6 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@csstools/postcss-color-mix-function": "^4.0.10",
-    "@csstools/postcss-oklab-function": "^5.0.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
