@@ -48,13 +48,7 @@ const AboutText = ({ doctor }: { doctor: DoctorData }) => {
   return (
     <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
       {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16"
-      >
+      <div className="text-center mb-16">
         <TitleWidge Icon={Award} title="خبرة وثقة" />
         <h2 className="text-4xl font-black text-[#062657] sm:text-5xl">
           نبذة عن
@@ -63,16 +57,10 @@ const AboutText = ({ doctor }: { doctor: DoctorData }) => {
         <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
           رحلة من التميز الطبي والعناية الفائقة بقلوب المرضى
         </p>
-      </motion.div>
+      </div>
 
       {/* Right side - Content */}
-      <motion.div
-        initial={{ opacity: 0, x: 60 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="space-y-6"
-      >
+      <div className="space-y-6">
         <div>
           <h3 className="text-2xl font-bold text-[#062657]">{doctor.title}</h3>
           <p className="mt-4 text-slate-600 leading-relaxed">
@@ -85,12 +73,8 @@ const AboutText = ({ doctor }: { doctor: DoctorData }) => {
           {specialties.map((item, index) => {
             const Icon = item.icon;
             return (
-              <motion.div
+              <div
                 key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
                 className="group rounded-2xl border border-[#062657]/10 bg-white p-4 transition-all hover:shadow-lg hover:border-[#075b9f]/20"
               >
                 <div className="flex items-start gap-3">
@@ -106,7 +90,7 @@ const AboutText = ({ doctor }: { doctor: DoctorData }) => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -132,7 +116,7 @@ const AboutText = ({ doctor }: { doctor: DoctorData }) => {
           احجز موعداً للاستشارة
           <ChevronLeft className="h-4 w-4" />
         </motion.a>
-      </motion.div>
+      </div>
     </div>
   );
 };

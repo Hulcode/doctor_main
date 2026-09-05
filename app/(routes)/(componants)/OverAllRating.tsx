@@ -14,8 +14,8 @@ const OverAllRating = ({
   return (
     <div>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 20 }}
+        whileInView={{ y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
         className="grid gap-8 mb-12 md:grid-cols-[300px_1fr] bg-white rounded-2xl border border-[#062657]/10 p-6 shadow-sm"

@@ -7,8 +7,8 @@ import TitleWidge from "../(componants)/TitleWidge";
 const BookingTextSection = () => {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -60 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ x: -60 }}
+      whileInView={{ x: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
       className="max-w-xl"
@@ -35,8 +35,8 @@ const BookingTextSection = () => {
         ].map((feature, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
             viewport={{ once: true }}
             className="flex items-center gap-4"

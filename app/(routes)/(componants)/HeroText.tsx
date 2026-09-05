@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
 import { HeartPulse, CalendarDays } from "lucide-react";
 import TitleWidge from "./TitleWidge";
 
@@ -13,12 +12,7 @@ interface DoctorData {
 
 const HeroText = ({ doctor }: { doctor: DoctorData }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 60 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-      className="max-w-2xl"
-    >
+    <div className="max-w-2xl">
       {/* Badge */}
 
       <TitleWidge Icon={HeartPulse} title={doctor.title} />
@@ -91,7 +85,7 @@ const HeroText = ({ doctor }: { doctor: DoctorData }) => {
         </div>
         <span>رعاية طبية تبدأ بالثقة والاطمئنان</span>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -17,8 +17,8 @@ const ReviewCard = ({ review, index }: { review: review; index: number }) => {
   return (
     <motion.div
       key={review.id}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y: 20 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className="group bg-white rounded-2xl border border-[#062657]/10 p-6 shadow-sm hover:shadow-xl hover:border-[#075b9f]/20 transition-all duration-300 hover:-translate-y-1"

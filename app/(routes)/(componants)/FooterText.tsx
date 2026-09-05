@@ -122,8 +122,8 @@ const FooterContent = ({ doctor }: { doctor: DoctorData }) => {
         <div className="grid gap-12 pb-12 border-b border-white/10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand & About */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="space-y-4"
@@ -153,8 +153,8 @@ const FooterContent = ({ doctor }: { doctor: DoctorData }) => {
 
           {/* Quick Links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
@@ -178,8 +178,8 @@ const FooterContent = ({ doctor }: { doctor: DoctorData }) => {
 
           {/* Contact Info - Dynamic from doctor */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
@@ -223,8 +223,8 @@ const FooterContent = ({ doctor }: { doctor: DoctorData }) => {
 
           {/* Working Hours & CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
@@ -256,8 +256,8 @@ const FooterContent = ({ doctor }: { doctor: DoctorData }) => {
         <div className="flex flex-col items-center justify-between gap-6 pt-8 md:flex-row">
           {/* Social Links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex items-center gap-3"
@@ -280,8 +280,8 @@ const FooterContent = ({ doctor }: { doctor: DoctorData }) => {
             })}
           </motion.div>{" "}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
             className=""
@@ -301,8 +301,8 @@ const FooterContent = ({ doctor }: { doctor: DoctorData }) => {
           </motion.div>
           {/* Copyright + Made by */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
             className="text-center md:text-left"

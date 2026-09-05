@@ -85,8 +85,8 @@ const ReviewsCarousel = ({ reviews }: { reviews: Review[] }) => {
       <div className="relative mx-auto max-w-5xl px-6 lg:px-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          whileInView={{ y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
@@ -103,8 +103,8 @@ const ReviewsCarousel = ({ reviews }: { reviews: Review[] }) => {
 
         {/* Carousel Container */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          whileInView={{ y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
           className="relative"

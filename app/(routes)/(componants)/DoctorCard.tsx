@@ -54,8 +54,8 @@ const DoctorCard = ({
   return (
     <div>
       <motion.div
-        initial={{ opacity: 0, x: -60 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ x: -60 }}
+        animate={{ x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative mx-auto w-full max-w-[360px]"
       >
@@ -200,8 +200,8 @@ const DoctorCard = ({
 
         {/* Availability badge */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ delay: 1, duration: 0.5 }}
           className="absolute -bottom-5 -left-5 z-40 flex items-center gap-3 rounded-2xl border border-[#062657]/10 bg-white/90 backdrop-blur-sm px-4 py-3 shadow-xl"
         >

@@ -16,8 +16,8 @@ const MobileHeader = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
+          initial={{ height: 0 }}
+          animate={{ height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="lg:hidden overflow-hidden border-t border-slate-200/70 bg-white/95 backdrop-blur-xl"
@@ -26,8 +26,8 @@ const MobileHeader = ({
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.href}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ x: -20 }}
+                animate={{ x: 0 }}
                 transition={{ delay: index * 0.05 }}
               >
                 <Link
@@ -43,8 +43,8 @@ const MobileHeader = ({
 
             {/* Mobile CTA Button */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 10 }}
+              animate={{ y: 0 }}
               transition={{ delay: 0.3 }}
               className="mt-4 pt-4 border-t border-slate-200/70"
             >

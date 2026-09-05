@@ -96,8 +96,8 @@ const ApointmentForm = ({
   return (
     <div>
       <motion.div
-        initial={{ opacity: 0, x: 60 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ x: 60 }}
+        whileInView={{ x: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true }}
         className="relative"
@@ -120,8 +120,8 @@ const ApointmentForm = ({
             {submitted ? (
               /* Success Message */
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
                 className="flex flex-col items-center justify-center py-20 text-center"
               >
                 <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-50 border border-emerald-200">
@@ -190,11 +190,7 @@ const ApointmentForm = ({
                         TIME SELECTION - Small Buttons
                     ============================================ */}
                 {selectedDate && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
+                  <div>
                     <label className="mb-3 flex items-center gap-2 text-sm font-semibold text-[#062657]">
                       <Clock className="h-4 w-4 text-[#075b9f]" />
                       اختر الوقت
@@ -236,7 +232,7 @@ const ApointmentForm = ({
                         })}
                       </div>
                     )}
-                  </motion.div>
+                  </div>
                 )}
 
                 {/* ============================================

@@ -91,8 +91,8 @@ const WriteReview = ({
   return (
     <div>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 20 }}
+        whileInView={{ y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
         className="bg-white rounded-2xl border border-[#062657]/10 p-6 mb-12 shadow-sm"
