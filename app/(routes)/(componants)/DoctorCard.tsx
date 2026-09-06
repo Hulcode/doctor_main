@@ -162,6 +162,7 @@ const DoctorCard = ({
                       src={doctorImage}
                       alt={doctor.name}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       priority
                       className="object-contain object-bottom drop-shadow-[0_18px_24px_rgba(0,0,0,0.5)]"
                     />

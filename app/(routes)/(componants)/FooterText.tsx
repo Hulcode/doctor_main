@@ -14,7 +14,7 @@ import {
   CalendarDays,
 } from "lucide-react";
 import logo from "../../../public/noBg.png";
-import { FaFacebook, FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 // Type for Doctor data
 interface DoctorData {
@@ -43,7 +43,7 @@ const FooterContent = ({ doctor }: { doctor: DoctorData }) => {
     whatsapp: {
       label: "واتساب",
       value: doctor.phone,
-      icon: Phone,
+      icon: FaWhatsapp,
       href: `https://wa.me/${doctor.phone}`,
     },
     email: {
@@ -56,7 +56,7 @@ const FooterContent = ({ doctor }: { doctor: DoctorData }) => {
       label: "العنوان",
       value: doctor.address || "القاهرة، مصر",
       icon: MapPin,
-      href: "https://maps.google.com/",
+      href: `https://www.google.com/maps/search/?q=${encodeURIComponent(doctor.address || "القاهرة، مصر")}`,
     },
   };
 
@@ -292,7 +292,7 @@ const FooterContent = ({ doctor }: { doctor: DoctorData }) => {
                 href="https://www.linkedin.com/in/al-hassan-soliman-/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[11px] font-semibold text-white/40 transition-all hover:text-[#cda558] hover:underline"
+                className="text-[15px] font-semibold text-white/40 transition-all hover:text-[#cda558] hover:underline"
               >
                 Made by <span className="text-[#cda558]">Hulcode</span>
               </a>

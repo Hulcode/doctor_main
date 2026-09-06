@@ -1,6 +1,7 @@
 "use server";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { notifyAdmin } from "@/lib/push";
 
 // import { revalidatePath } from "next/cache";
 // import { redirect } from "next/navigation";
@@ -88,7 +89,21 @@ export async function bookAppointment(formData: FormData, doctorId: string) {
       status: "PENDING", // Will be confirmed by admin
     },
   });
-  revalidatePath("/admin");
+
+  // ============================================
+  // 5.5. NOTIFY ADMIN (PUSH NOTIFICATION)
+  // ============================================
+  try {
+    await notifyAdmin({
+      title: "موعد جديد",
+      body: `${name} حجز موعد يوم ${date} الساعة ${time} - ${phone}`,
+      url: process.env.ADMIN_URL,
+    });
+  } catch (err) {
+    // Never let a push failure break the booking flow
+    console.error("Push notify failed:", err);
+  }
+
   // ============================================
   // 6. REVALIDATE & REDIRECT
   // ============================================
