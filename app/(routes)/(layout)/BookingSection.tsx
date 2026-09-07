@@ -68,7 +68,7 @@ const BookingSection = async () => {
         lte: nextWeek,
       },
       status: {
-        in: ["PENDING"],
+        in: ["PENDING", "CANCELLED"],
       },
     },
     select: {
