@@ -7,7 +7,7 @@ export const getDateAfter = (day: number) => {
 
 export const getDayFromString = (dateString: string) => {
   const date = new Date(dateString);
-  return date.getDay();
+  return (date.getDay() + 1) % 7;
 };
 export const formatDate = (dateString: string) => {
   const date = new Date(dateString);
